@@ -1,4 +1,5 @@
-import { Container, Navbar, Button } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
+import Cart from "./Cart";
 
 const TopNavBar = () => {
   return (
@@ -9,10 +10,9 @@ const TopNavBar = () => {
           <Navbar.Brand href="#store">STORE</Navbar.Brand>
           <Navbar.Brand href="#about">ABOUT</Navbar.Brand>
         </Container>
-        <Button className="justify-content-end me-4 btn btn-dark btn-outline-warning text-white">
-          Cart
-        </Button>
+        <Cart/>
       </Navbar>
+      
     </>
   );
 };
