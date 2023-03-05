@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container, Button } from "react-bootstrap";
+import MainDetails from "./Components/ProductDetails/MainDetails";
+import TopNavBar from "./Components/TopNavBar/TopNavBar";
+import BottomNavBar from "./Components/BottomNavBar/BottomNavBar";
+import classes from "./App.module.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TopNavBar />
+      <MainDetails />
+      <Container className={classes.button}>
+        <Button variant="secondary" size="lg" >See the Cart</Button>
+      </Container>
+      <BottomNavBar />
+    </>
   );
 }
 

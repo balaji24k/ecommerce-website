@@ -1,0 +1,20 @@
+.items {
+    display: flex;
+    justify-content: space-around;
+    background: #37c2f1;
+    padding: 10px;
+  }
+  
+  .items h2 {
+    margin-top: 10px;
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .items img {
+    height: 40px;
+    width: 40px;
+    border-radius: 10%;
+    margin: 30px;
+  }

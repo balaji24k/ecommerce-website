@@ -1,0 +1,33 @@
+.div {
+    flex-basis: 40%;
+    margin-bottom: 50px;
+  }
+  .div header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: x-large;
+    font-weight: bold;
+  }
+  
+  .div img {
+    display: flex;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  
+  .div img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+  }
+  
+  .div span {
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+  }
+  .div Button {
+    margin-left: 140px;
+    background-color: rgb(39, 182, 229);
+  color: white;
+  }
