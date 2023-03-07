@@ -14,3 +14,9 @@
 .card {
     margin: 30px 0 auto 500px;
 }
+
+.span{
+    display: grid;
+    color: rgb(11, 235, 71);
+    font-size:medium;
+}
