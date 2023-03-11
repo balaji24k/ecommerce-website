@@ -14,14 +14,14 @@
     margin-top: 2pc;
   }
   
-  .title p {
+  /* .title p {
     height: 150px;
     background-color: grey;
     color: white;
     font-size: 100px;
     font-family: "sans-serif";
     text-align: center;
-  }
+  } */
   
   .products {
     display: flex;
@@ -31,4 +31,9 @@
     object-fit: cover;
     justify-content: center;
     margin: auto;
+  }
+
+  .button {
+    text-align: center;
+    padding-bottom: 20px;
   }

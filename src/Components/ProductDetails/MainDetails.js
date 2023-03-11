@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./MainDetails.module.css";
 import ProductList from "./ProductList";
+import { Container,Button } from "react-bootstrap";
 
 
 const productsArr = [
@@ -49,10 +50,12 @@ const MainDetails = () => {
   return (
     <>
       <div className={classes.title}>
-        <p>The Generics</p>
-        <h4>Music</h4>
+          <h4>Music</h4>
         <span className={classes.products}>{ProductsDetails}</span>
       </div>
+      <Container className={classes.button}>
+        <Button className="btn-dark btn-outline-warning ">See the Cart</Button>
+      </Container>
     </>
   );
 };

@@ -1,21 +1,31 @@
 import React,{useState} from "react";
-import { Container, Button } from "react-bootstrap";
 import MainDetails from "./Components/ProductDetails/MainDetails";
-import TopNavBar from "./Components/TopNavBar/TopNavBar";
 import BottomNavBar from "./Components/BottomNavBar/BottomNavBar";
-import classes from "./App.module.css";
 import CartContext from "./Store/CartContext";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./Components/Pages/About";
+import Root from "./Components/Pages/Root";
+
+
+const router = createBrowserRouter ([
+  {
+    path:'/',
+    element :  <Root/>,
+    children : [
+      {path : '/', element : <MainDetails/>},
+      {path : '/ABOUT', element : <About/>}
+    ]
+
+  }
+]);
+
 
 const App = () => {
   const [cartList,setCartList] = useState([]);
   return (
     <>
     <CartContext.Provider value={{cartList,setCartList}}>
-      <TopNavBar />
-      <MainDetails />
-      <Container className={classes.button}>
-        <Button variant="secondary" size="lg" >See the Cart</Button>
-      </Container>
+      <RouterProvider router={router} />
       <BottomNavBar/>
     </CartContext.Provider>
     </>
