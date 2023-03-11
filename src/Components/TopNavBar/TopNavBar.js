@@ -15,7 +15,7 @@ const TopNavBar = () => {
       >
         <Container className="justify-content-center ">
           <Nav style={{ fontSize: "20px", color: "white" }}>
-            <NavLink to="/" className={classes.font} style={{ color: "white" }}>
+            <NavLink to="/HOME" className={classes.font} style={{ color: "white" }}>
               HOME
             </NavLink>
             <NavLink
