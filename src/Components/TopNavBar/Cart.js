@@ -6,7 +6,6 @@ import classes from "./Cart.module.css";
 const Cart = () => {
 
   const cartCtx = useContext(CartContext);
-  console.log(cartCtx,"cartjs")
 
   const [showItems, setShowItems] = useState(false);
 
@@ -30,10 +29,7 @@ const Cart = () => {
         className="justify-content-end me-4 btn btn-dark btn-outline-warning text-white"
         onClick={ShowHandler}
       >
-        Cart
-        <span className={classes.span}>
-          {count}
-        </span>
+        Cart-{count}
       </Button>
 
       <Modal className={classes.card} show={showItems} onHide={handleClose}>

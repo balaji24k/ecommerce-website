@@ -15,22 +15,29 @@ const TopNavBar = () => {
       >
         <Container className="justify-content-center ">
           <Nav style={{ fontSize: "20px", color: "white" }}>
-            <NavLink to="/HOME" className={classes.font} style={{ color: "white" }}>
+            <NavLink to="/" className={classes.font} style={{ color: "white" }}>
               HOME
             </NavLink>
             <NavLink
-              to="/STORE"
+              to="/store"
               className={classes.font}
               style={{ color: "white" }}
             >
               STORE
             </NavLink>
             <NavLink
-              to="/ABOUT"
+              to="/about"
               className={classes.font}
               style={{ color: "white" }}
             >
               ABOUT
+            </NavLink>
+            <NavLink
+              to="/ContactUs"
+              className={classes.font}
+              style={{ color: "white" }}
+            >
+              CONTACT-US
             </NavLink>
           </Nav>
         </Container>

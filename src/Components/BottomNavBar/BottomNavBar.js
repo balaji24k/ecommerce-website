@@ -8,19 +8,19 @@ const BottomNavBar = () => {
         <h2>The Generics</h2>
 
         <div>
-          <Navbar.Brand href="youtube">
+          <Navbar.Brand href="https://www.youtube.com">
             <img
               src="https://prasadyash2411.github.io/ecom-website/img/6260efc8fc9a9002669d2f4ad9956cc0.jpg"
               alt="youtube"
             />
           </Navbar.Brand>
-          <Navbar.Brand href="spotify">
+          <Navbar.Brand href="https://www.spotify.com">
             <img
               src="https://prasadyash2411.github.io/ecom-website/img/Spotify%20Logo.png"
               alt="spotify"
             />{" "}
           </Navbar.Brand>
-          <Navbar.Brand href="fb">
+          <Navbar.Brand href="https://www.facebook.com">
             <img
               src="https://prasadyash2411.github.io/ecom-website/img/Facebook%20Logo.png"
               alt="fb"

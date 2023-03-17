@@ -13,11 +13,12 @@
     display: flex;
     margin: auto;
     margin-bottom: 50px;
+    transition: transform 0.2s;
   }
   
   .div img:hover {
     transform: scale(1.1);
-    transition: transform 0.3s;
+    
   }
   
   .div span {
@@ -29,5 +30,5 @@
   .div Button {
     margin-left: 140px;
     background-color: rgb(39, 182, 229);
-  color: white;
+    color: white;
   }
