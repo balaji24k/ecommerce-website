@@ -9,6 +9,7 @@ import ContactUs from "./Components/Pages/ContactUs";
 import { Route, Switch, Redirect } from "react-router-dom";
 import ProductView from "./Components/Pages/ProductPage";
 import { ProductContextProvider } from "./Store/storeContext";
+import Login from "./Components/Pages/Login";
 
 
 
@@ -39,6 +40,9 @@ const App = () => {
           <Route exact path="/Contactus">
             <ContactUs />
             <BottomNavBar />
+          </Route>
+          <Route exact path="/LOGIN">
+            <Login/>
           </Route>
         </ProductContextProvider>
       </CartContext.Provider>

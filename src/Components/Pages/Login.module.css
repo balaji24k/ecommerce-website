@@ -1,0 +1,42 @@
+.login{
+    width: 40%;
+    background-color: rgb(240, 167, 95);
+    border-radius: 5px;
+    height: 22rem;
+    margin:3rem auto ;
+    max-width: 25rem;
+    text-align: center;
+
+}
+.login h1{
+    padding: 1rem;
+    font-weight: bold;
+
+}
+.login label{
+    border-radius: 5px;
+    width: 80%;
+   color: black;
+   font-weight: bold;
+   font-size: larger;
+}
+.login input{
+    border-radius: 5px;
+    width: 90%;
+    margin: 0.5rem;
+    font: inherit;
+
+}
+.login Button{
+    margin: 1rem;
+    border-color: aqua;
+    border-radius: 8px;
+    padding: 5px;
+    width: 70px;
+    box-shadow: 3rem;
+
+}
+.login button:hover {
+    background-color:#7df2e6;
+    transition: 0.7s;
+}
