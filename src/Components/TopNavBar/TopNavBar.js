@@ -40,6 +40,16 @@ const TopNavBar = () => {
               </NavLink>
             )}
 
+            {!authCtx.isLoggedIn && (
+              <NavLink
+                to="/Login"
+                className={classes.font}
+                style={{ color: "white" }}
+              >
+                STORE
+              </NavLink>
+            )}
+
             <NavLink
               to="/about"
               className={classes.font}
@@ -57,7 +67,7 @@ const TopNavBar = () => {
 
             {!authCtx.isLoggedIn && (
               <NavLink
-                to="/LOGIN"
+                to="/Login"
                 className={classes.font}
                 style={{ color: "lightgreen" }}
               >

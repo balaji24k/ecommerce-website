@@ -41,7 +41,7 @@ const App = () => {
             <ContactUs />
             <BottomNavBar />
           </Route>
-          <Route exact path="/LOGIN">
+          <Route exact path="/Login">
             <Login/>
           </Route>
         </ProductContextProvider>
