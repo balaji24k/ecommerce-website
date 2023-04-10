@@ -10,34 +10,92 @@ const ProductList = (props) => {
   const cartCtx = useContext(CartContext);
   const productCtx = useContext(ProductContext);
 
-  const CartHandler = (id, title, imageUrl, price) => {
+  const CartHandler = (id, title, imageUrl, price, quantity) => {
     const ItemList = {
       id,
       title,
       imageUrl,
       price,
-      quantity: 1,
+      quantity:1,
     };
 
     let CurrentItem = false;
-    let ModifiedCart = [];
-
-    cartCtx.cartList.map((item) => {
+    let ModifiedCart=[];
+    ModifiedCart = cartCtx.cartList.map((item) => {
       if (item.title === ItemList.title) {
         CurrentItem = true;
         item.quantity += 1;
-        ModifiedCart.push(item);
-      } else {
-        ModifiedCart.push(item);
-      }
-      return item;
+        const emailStoredInLocalStorage = localStorage.getItem("email");
+        const userEmail = emailStoredInLocalStorage
+          ? emailStoredInLocalStorage.replace(/[^\w\s]/gi, "")
+          : "";
+          fetch(
+            `https://crudcrud.com/api/ef6d8b646e634770a5c699a59715becc/${userEmail}/${item._id}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                id: id,
+                title: title,
+                price: price,
+                imageUrl: imageUrl,
+                quantity: item.quantity,
+              }),
+            }
+          )
+            .then((response) => {
+              console.log(response,"sameQuantityUpdated")
+              if (!response.ok) {
+                throw new Error("Failed to update item in cart");
+              }
+            })
+            .catch((error) => console.error(error));
+        }
+        return item;
     });
 
     if (!CurrentItem) {
-      ModifiedCart.push(ItemList);
-    }
+      console.log(ItemList,"beforePostInprodList");
 
-    cartCtx.setCartList(ModifiedCart);
+      const emailStoredInLocalStorage = localStorage.getItem("email");
+      const userEmail = emailStoredInLocalStorage
+        ? emailStoredInLocalStorage.replace(/[^\w\s]/gi, "")
+        : "";
+
+        fetch(
+          `https://crudcrud.com/api/ef6d8b646e634770a5c699a59715becc/${userEmail}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(ItemList),
+          }
+        )
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to add item to cart");
+            }
+          })
+          .catch((error) => console.error(error));
+      }
+  
+      cartCtx.setCartList(ModifiedCart);
+
+      // axios.post(`https://crudcrud.com/api/ef6d8b646e634770a5c699a59715becc/${userEmail}`,ItemList)
+      //   .then((response) => {
+      //     ModifiedCart.push(response.data);
+      //     cartCtx.setCartList(ModifiedCart);
+      //     console.log(response,"afterPost in ProdList")
+      //   })
+      //   .catch((error) => console.error(error));
+
+    
+    console.log(ModifiedCart,"Modified cart after post")
+
+    
   };
 
   const ProductDetailHandler = (props) => {
@@ -66,7 +124,14 @@ const ProductList = (props) => {
       <ul>Rs{props.price}</ul>
         <Button
           className="btn-info"
-          onClick={() => CartHandler(props.title, props.imageUrl, props.price)}
+          onClick={() => 
+            CartHandler(
+              props.id,
+              props.title, 
+              props.imageUrl, 
+              props.price,
+              props.quantity
+            )}
         >
           ADD TO CART
         </Button>

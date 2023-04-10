@@ -1,5 +1,5 @@
 import classes from "./Login.module.css";
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
 import AuthContext from "./auth-context";
 import { useHistory } from "react-router-dom";
 
@@ -8,12 +8,15 @@ const Login = () => {
   const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const [loading, setLoaiding] = useState(false);
   const authCtx = useContext(AuthContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+
+    setLoaiding(true);
 
     fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBO-uWvkbDxYCjipLzXz0ZulQvNenR57ww",
@@ -44,7 +47,7 @@ const Login = () => {
         }
       }).then((data) => {
         console.log(data);
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, enteredEmail);
         history.replace("/store");
       })
       .catch((err) => {

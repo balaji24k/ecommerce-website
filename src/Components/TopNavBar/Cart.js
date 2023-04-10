@@ -1,13 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Button, Modal, Table, ModalBody } from "react-bootstrap";
 import CartContext from "../../Store/CartContext";
 import classes from "./Cart.module.css";
+import axios from "axios";
 
 const Cart = () => {
 
   const cartCtx = useContext(CartContext);
 
   const [showItems, setShowItems] = useState(false);
+
 
   let count = 0;
   cartCtx.cartList.map((item) => {
@@ -22,6 +24,26 @@ const Cart = () => {
   const handleClose = () => {
     setShowItems(false);
   };
+
+  useEffect(() => {
+    const emailStoredInLocalStorage = localStorage.getItem("email");
+    const userEmail = emailStoredInLocalStorage
+      ? emailStoredInLocalStorage.replace(/[^\w\s]/gi, "")
+      : "";
+
+    console.log(userEmail,"emailIn Cart.JS");
+    
+
+    axios.get(`https://crudcrud.com/api/ef6d8b646e634770a5c699a59715becc/${userEmail}`)
+      .then((response) => {
+        console.log(response.data,"refreshed in cart");
+        cartCtx.setCartList(response.data);
+
+      })
+     
+      .catch((error) => console.error(error));
+  }, []);
+
 
   return (
     <>
@@ -49,8 +71,9 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cartCtx.cartList.map((item, id) => (
-                <tr key={id}>
+              {cartCtx.cartList.map((item) => (
+
+                <tr id={item._id}>
                   <td>
                     <img
                       className={classes.img}

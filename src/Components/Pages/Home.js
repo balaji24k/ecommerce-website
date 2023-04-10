@@ -32,8 +32,8 @@ const Home = () => {
       <h3 className={classes.h3}>TOURS</h3>
       <Table className="border d-grid align-items-center justify-content-center">
         <tbody>
-          {tours.map((tour) => (
-            <tr>
+          {tours.map((tour,id) => (
+            <tr key={id}>
               <td>{tour.date}</td>
               <td>{tour.city}</td>
               <td>{tour.venue}</td>
